@@ -24,6 +24,9 @@ class Animal {
 
  private:
   string _type;
+  void announce(const string& msg) const;
 };
+
+
 
 #endif
