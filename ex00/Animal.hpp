@@ -1,7 +1,6 @@
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
 
-#include <iostream>
 #include <string>
 
 using std::string;
@@ -22,8 +21,9 @@ class Animal {
   // Getters / Setters
   const string& getType() const;
 
- private:
+ protected:
   string _type;
+
   void announce(const string& msg) const;
 };
 

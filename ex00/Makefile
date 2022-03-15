@@ -1,16 +1,14 @@
 NAME := prog.out
 CC := c++
 CFLAGS := -Wall -Wextra -Werror -Wshadow -std=c++98
-INC := -I include/
-SRC := src/
-SRC := $(wildcard $(SRC)*.cpp)
+SRC := $(wildcard *.cpp)
 OBJ := $(SRC:%.cpp=%.o)
 
 %.o: %.cpp
-	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(INC) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^
 
 run: $(NAME)
 	./$(NAME)
