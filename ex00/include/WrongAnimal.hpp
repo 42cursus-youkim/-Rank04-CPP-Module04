@@ -13,10 +13,13 @@ class WrongAnimal {
   // Constructors
   WrongAnimal();
   WrongAnimal(const WrongAnimal& copy);
+  // Destructor
   virtual ~WrongAnimal();
   // Operators
   WrongAnimal& operator=(const WrongAnimal& copy);
+  // Getters / Setters
   string const& getType() const;
+  // Methods
   void makeSound() const;
 };
 

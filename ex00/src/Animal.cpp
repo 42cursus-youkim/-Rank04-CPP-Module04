@@ -8,12 +8,12 @@ Animal::Animal() : _type("random animal") {
   announce("is born");
 }
 
-Animal::Animal(string type) : _type(type) {
+Animal::Animal(const string& type) : _type(type) {
   announce("is born");
 }
 
-Animal::Animal(const Animal& copy) {
-  *this = copy;
+Animal::Animal(const Animal& other) {
+  *this = other;
   announce("is copied");
 }
 

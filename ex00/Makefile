@@ -1,21 +1,18 @@
 NAME := prog.out
-CC := c++
-CFLAGS := -Wall -Wextra -Werror -Wshadow -std=c++98
-SRC := $(wildcard *.cpp)
+CXX  := c++
+CPPFLAGS := -Wall -Wextra -Werror -Wshadow -std=c++98 -Iinclude/
+SRC := $(wildcard src/*.cpp)
 OBJ := $(SRC:%.cpp=%.o)
 
-%.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+.PHONY: run re clean
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CXX) $(CPPFLAGS) -o $@ $^
 
 run: $(NAME)
 	./$(NAME)
 
-.PHONY: run re test clean
-
 re: clean $(NAME)
 
 clean:
-	rm -f *.o $(NAME)
+	$(RM) $(wildcard $(OBJ)) $(NAME)
