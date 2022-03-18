@@ -1,9 +1,15 @@
 #include "Cat.hpp"
 
 // Constructors
-Cat::Cat() : Animal("Random Cat") {}
-Cat::Cat(const string& type) : Animal(type) {}
-Cat::Cat(Cat const& other) : Animal(other) {}
+Cat::Cat() : Animal("Random Cat") {
+  announce("(CAT) is born");
+}
+Cat::Cat(const string& type) : Animal(type) {
+  announce("(CAT) is born");
+}
+Cat::Cat(Cat const& other) : Animal(other) {
+  announce("(CAT) is born");
+}
 
 // Destructor
 Cat::~Cat() {
