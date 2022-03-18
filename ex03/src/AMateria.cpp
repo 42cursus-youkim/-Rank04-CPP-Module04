@@ -1,4 +1,5 @@
 #include "AMateria.hpp"
+#include <iostream>
 
 // Constructors
 AMateria::AMateria() {}  // Disabled
@@ -25,4 +26,6 @@ string const& AMateria::getType() const {
 }
 
 // Methods
-void AMateria::use(ICharacter& target) {}
+void AMateria::use(ICharacter& target) {
+  std::cout << "* does something to " << target.getName() << " *\n";
+}

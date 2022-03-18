@@ -5,7 +5,12 @@
 
 class MateriaSource : public IMateriaSource {
  private:
-  AMateria* _materia[4];
+  const static size_t MAX_MATERIAS = 4;
+
+  AMateria* _materias[MAX_MATERIAS];
+
+  // Methods
+  void copyMateriasFromSource(MateriaSource const& other);
 
  public:
   // Constructors

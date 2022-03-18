@@ -1,50 +1,52 @@
 #include "MateriaSource.hpp"
 
+// Constructors
 MateriaSource::MateriaSource() {
-  for (int i = 0; i < 4; i++)
-    _materia[i] = NULL;
+  for (int i = 0; i < MAX_MATERIAS; i++)
+    _materias[i] = NULL;
 }
 
 MateriaSource::MateriaSource(MateriaSource const& other) {
-  for (int i = 0; i < 4; i++) {
-    const AMateria* temp = other._materia[i];
-    if (temp)
-      _materia[i] = temp->clone();
-    else
-      _materia[i] = NULL;
-  }
+  copyMateriasFromSource(other);
 }
 
+// Destructor
 MateriaSource::~MateriaSource() {
-  for (int i = 0; i < 4; i++)
-    if (_materia[i])
-      delete _materia[i];
+  for (int i = 0; i < MAX_MATERIAS; i++)
+    if (_materias[i])
+      delete _materias[i];
 }
 
+// Operators
 MateriaSource& MateriaSource::operator=(MateriaSource const& other) {
-  for (int i = 0; i < 4; i++) {
-    const AMateria* temp = other._materia[i];
-    if (temp)
-      _materia[i] = temp->clone();
-    else
-      _materia[i] = NULL;
-  }
+  copyMateriasFromSource(other);
   return *this;
 }
 
+// Methods
+void MateriaSource::copyMateriasFromSource(MateriaSource const& other) {
+  for (int i = 0; i < MAX_MATERIAS; i++) {
+    const AMateria* temp = other._materias[i];
+    if (temp)
+      _materias[i] = temp->clone();
+    else
+      _materias[i] = NULL;
+  }
+}
+
 void MateriaSource::learnMateria(AMateria* materia) {
-  for (int i = 0; i < 4; i++) {
-    if (not _materia[i]) {
-      _materia[i] = materia;
+  for (int i = 0; i < MAX_MATERIAS; i++) {
+    if (not _materias[i]) {
+      _materias[i] = materia;
       return;
     }
   }
 }
 
 AMateria* MateriaSource::createMateria(std::string const& type) {
-  for (int i = 0; i < 4; i++) {
-    if (_materia[i] and _materia[i]->getType() == type)
-      return _materia[i]->clone();
+  for (int i = 0; i < MAX_MATERIAS; i++) {
+    if (_materias[i] and _materias[i]->getType() == type)
+      return _materias[i]->clone();
   }
   return NULL;
 }
