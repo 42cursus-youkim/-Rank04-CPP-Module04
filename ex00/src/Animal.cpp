@@ -34,6 +34,11 @@ const string& Animal::getType() const {
   return _type;
 }
 
+// Methods
+void Animal::makeSound() const {
+  announce("(ANIMAL) makes a sound");
+}
+
 void Animal::announce(const string& msg) const {
   cout << _type << " " << msg << std::endl;
 }
