@@ -3,12 +3,15 @@
 // Constructors
 Cat::Cat() : Animal("Random Cat") {
   _brain = new Brain();
+  announce("(CAT) is born");
 }
 Cat::Cat(const string& type) : Animal(type) {
   _brain = new Brain();
+  announce("(CAT) is born");
 }
 Cat::Cat(Cat const& other) : Animal(other) {
   _brain = new Brain(other.getBrain());
+  announce("(CAT) is born");
 }
 
 // Destructor
