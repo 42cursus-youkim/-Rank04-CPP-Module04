@@ -2,8 +2,11 @@
 #define CAT_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal {
+  private:
+    Brain* _brain;
  public:
   // Constructors
   Cat();
@@ -14,10 +17,14 @@ class Cat : public Animal {
   ~Cat();
 
   // Operators
-  Cat& operator=(Cat const& assign);
+  Cat& operator=(Cat const& other);
+
+  // Getters
+  const Brain& getBrain() const;
 
   // Methods
   void makeSound() const;
 };
+
 
 #endif  // CAT_HPP

@@ -1,6 +1,6 @@
 NAME := prog.out
 CXX  := c++
-CPPFLAGS := -Wall -Wextra -Werror -Wshadow -std=c++98 -Iinclude/
+CPPFLAGS := -g -Wall -Wextra -Werror -Wshadow -std=c++98 -Iinclude/
 SRC := $(wildcard src/*.cpp)
 OBJ := $(SRC:%.cpp=%.o)
 
@@ -18,4 +18,4 @@ clean:
 	$(RM) $(wildcard $(OBJ)) $(NAME)
 
 leak: all
-	colour-valgrind ./$(NAME)
+	colour-valgrind --leak-check=full ./$(NAME)
