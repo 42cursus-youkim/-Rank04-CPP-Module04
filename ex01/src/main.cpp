@@ -24,17 +24,22 @@ int main() {
   }
   {
     cout << "\n** Deep Copy Test **\n\n";
-    Animal* dogAnimal = new Dog();
-    Dog dogCopy(*(Dog*)dogAnimal);
-    delete dogAnimal;
-    dogCopy.makeSound();
-    cout << "copied brain =>\n" << dogCopy.getBrain() << "\n\n";
-
-    Animal* catAnimal = new Cat("CatAnimal");
-    Cat catCopy(*(Cat*)catAnimal);
-    delete catAnimal;
-    catCopy.makeSound();
-    cout << "copied brain =>\n" << catCopy.getBrain() << "\n";
+    {
+      Animal* dogAnimal = new Dog();
+      Dog dogCopy(*(Dog*)dogAnimal);
+      delete dogAnimal;
+      dogCopy.makeSound();
+      cout << "dogCopy's brain copied from dogAnimal=>\n" << dogCopy.getBrain() << "\n";
+    }
+    cout << "";
+    {
+      Animal* catAnimal = new Cat("CatAnimal");
+      Cat catCopy("BeforeCopyCat");
+      catCopy = (*(Cat*)catAnimal);
+      delete catAnimal;
+      catCopy.makeSound();
+      cout << "catCopy's brain copied from catAnimal=>\n" << catCopy.getBrain() << "\n";
+    }
   }
   return 0;
 }
