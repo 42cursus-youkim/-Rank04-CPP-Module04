@@ -24,7 +24,7 @@ Animal::~Animal() {
 
 // Operators
 Animal& Animal::operator=(const Animal& assign) {
-  announce("is assigned");
+  announce("assigned into " + assign.getType());
   _type = assign.getType();
   return *this;
 }
