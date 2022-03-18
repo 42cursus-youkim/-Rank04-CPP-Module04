@@ -29,7 +29,8 @@ int main() {
       Dog dogCopy(*(Dog*)dogAnimal);
       delete dogAnimal;
       dogCopy.makeSound();
-      cout << "dogCopy's brain copied from dogAnimal=>\n" << dogCopy.getBrain() << "\n";
+      cout << "dogCopy's brain copied from dogAnimal=>\n"
+           << dogCopy.getBrain() << "\n";
     }
     cout << "";
     {
@@ -38,7 +39,13 @@ int main() {
       catCopy = (*(Cat*)catAnimal);
       delete catAnimal;
       catCopy.makeSound();
-      cout << "catCopy's brain copied from catAnimal=>\n" << catCopy.getBrain() << "\n";
+      cout << "catCopy's brain copied from catAnimal=>\n"
+           << catCopy.getBrain() << "\n";
+    }
+    {
+      // Animal Cannot be instantiated
+      // Animal animal;
+      // Animal *animalPtr = new Animal();
     }
   }
   return 0;

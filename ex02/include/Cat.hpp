@@ -5,8 +5,9 @@
 #include "Brain.hpp"
 
 class Cat : public Animal {
-  private:
-    Brain* _brain;
+ private:
+  Brain* _brain;
+
  public:
   // Constructors
   Cat();
@@ -25,6 +26,5 @@ class Cat : public Animal {
   // Methods
   void makeSound() const;
 };
-
 
 #endif  // CAT_HPP
