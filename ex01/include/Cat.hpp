@@ -1,5 +1,5 @@
-#ifndef __CAT_H__
-#define __CAT_H__
+#ifndef CAT_HPP
+#define CAT_HPP
 
 #include "Animal.hpp"
 
@@ -20,5 +20,4 @@ class Cat : public Animal {
   void makeSound() const;
 };
 
-#endif  // __CAT_H__
-
+#endif  // CAT_HPP

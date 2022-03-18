@@ -9,35 +9,10 @@ using std::cout;
 
 int main() {
   {
-    cout << "--- Animal ---\n";
-    const Animal* meta = new Animal();
-    const Animal* i = new Cat("Cat");
     const Animal* j = new Dog();
-    cout << "\n";
-    cout << "type of i is " << i->getType() << "\n";
-    cout << "type of j is " << j->getType() << "\n";
-    cout << "\n";
-    i->makeSound();  // will output the cat sound!
-    j->makeSound();
-    meta->makeSound();
-    cout << "\n";
-    delete meta;
+    const Animal* i = new Cat();
+    delete j;  // should not create a leak
     delete i;
-    delete j;
-  }
-  {
-    cout << "\n--- WrongAnimal ---\n";
-    const WrongAnimal* meta = new WrongAnimal();
-    const WrongAnimal* i = new WrongCat();
-    cout << "\n";
-    cout << "type of meta is " << meta->getType() << "\n";
-    cout << "type of i is " << i->getType() << "\n";
-    cout << "\n";
-    i->makeSound();  // will output the wrong animal sound!
-    meta->makeSound();
-    cout << "\n";
-    delete i;
-    delete meta;
   }
   return 0;
 }

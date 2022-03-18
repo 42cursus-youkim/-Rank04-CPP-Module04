@@ -1,5 +1,5 @@
-#ifndef __ANIMAL_H__
-#define __ANIMAL_H__
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
 #include <string>
 
@@ -31,4 +31,4 @@ class Animal {
   void announce(const string& msg) const;
 };
 
-#endif  // __ANIMAL_H__
+#endif  // ANIMAL_HPP

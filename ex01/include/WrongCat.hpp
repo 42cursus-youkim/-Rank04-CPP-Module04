@@ -1,5 +1,5 @@
-#ifndef __WRONGCAT_H__
-#define __WRONGCAT_H__
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
 #include "WrongAnimal.hpp"
 
@@ -19,4 +19,4 @@ class WrongCat : public WrongAnimal {
   void makeSound() const;
 };
 
-#endif  // __WRONGCAT_H__
+#endif  // WRONGCAT_HPP

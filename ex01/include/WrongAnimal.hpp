@@ -1,5 +1,5 @@
-#ifndef __WRONGWrongAnimal_H__
-#define __WRONGWrongAnimal_H__
+#ifndef WRONGWrongAnimal_HPP
+#define WRONGWrongAnimal_HPP
 
 #include <string>
 
@@ -30,4 +30,4 @@ class WrongAnimal {
  protected:
   void announce(const string& msg) const;
 };
-#endif  // __WRONGWrongAnimal_H__
+#endif  // WRONGWrongAnimal_H

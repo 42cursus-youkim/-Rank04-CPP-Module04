@@ -1,5 +1,5 @@
-#ifndef __DOG_H__
-#define __DOG_H__
+#ifndef DOG_HPP
+#define DOG_HPP
 
 #include "Animal.hpp"
 
@@ -19,4 +19,4 @@ class Dog : public Animal {
   void makeSound() const;
 };
 
-#endif  // __DOG_H__
+#endif  // DOG_HPP
