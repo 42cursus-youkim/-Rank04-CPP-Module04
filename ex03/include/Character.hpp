@@ -30,5 +30,4 @@ class Character : public ICharacter {
   void use(int idx, ICharacter& target);
 };
 
-
 #endif  // __CHARACTER_H__
