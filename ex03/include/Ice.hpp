@@ -3,5 +3,21 @@
 
 #include "AMateria.hpp"
 
-class Ice : public AMateria {};
+class Ice : public AMateria {
+ public:
+  // Constructor
+  Ice();
+  Ice(Ice const& other);
+
+  // Destructor
+  ~Ice();
+
+  // Operators
+  Ice& operator=(Ice const& rhs);
+
+  // Methods
+  AMateria* clone() const;
+  void use(ICharacter& target);
+};
+
 #endif  // __ICE_H__

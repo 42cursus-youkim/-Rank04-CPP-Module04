@@ -1,7 +1,7 @@
 #ifndef __IMATERIASOURCE_H__
 #define __IMATERIASOURCE_H__
 
-#include "Amateria.hpp"
+#include "AMateria.hpp"
 
 class IMateriaSource {
  public:
