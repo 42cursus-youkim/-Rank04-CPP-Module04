@@ -5,7 +5,7 @@
 
 class MateriaSource : public IMateriaSource {
  private:
-  const static size_t MAX_MATERIAS = 4;
+  const static int MAX_MATERIAS = 4;
 
   AMateria* _materias[MAX_MATERIAS];
 

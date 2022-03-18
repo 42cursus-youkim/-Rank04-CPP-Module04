@@ -26,6 +26,4 @@ string const& AMateria::getType() const {
 }
 
 // Methods
-void AMateria::use(ICharacter& target) {
-  std::cout << "* does something to " << target.getName() << " *\n";
-}
+void AMateria::use(ICharacter&) {}
