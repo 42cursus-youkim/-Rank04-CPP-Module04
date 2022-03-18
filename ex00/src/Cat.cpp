@@ -2,10 +2,13 @@
 
 // Constructors
 Cat::Cat() : Animal("Random Cat") {}
+Cat::Cat(const string& type) : Animal(type) {}
 Cat::Cat(Cat const& other) : Animal(other) {}
 
 // Destructor
-Cat::~Cat() {}
+Cat::~Cat() {
+  announce("(CAT) is destroyed");
+}
 
 // Operators
 Cat& Cat::operator=(Cat const& assign) {

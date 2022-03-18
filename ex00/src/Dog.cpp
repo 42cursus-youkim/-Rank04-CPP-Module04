@@ -1,12 +1,14 @@
 #include "Dog.hpp"
 
 // Constructors
-Dog::Dog(): Animal("Dog") {}
+Dog::Dog() : Animal("Dog") {}
 
-Dog::Dog(const Dog& other): Animal(other) {}
+Dog::Dog(const Dog& other) : Animal(other) {}
 
 // Destructor
-Dog::~Dog() {}
+Dog::~Dog() {
+  announce("(DOG) is destroyed");
+}
 
 // Operators
 Dog& Dog::operator=(const Dog& assign) {

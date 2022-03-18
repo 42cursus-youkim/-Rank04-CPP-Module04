@@ -1,5 +1,5 @@
-#ifndef __WRONGANIMAL_H__
-#define __WRONGANIMAL_H__
+#ifndef __WRONGWrongAnimal_H__
+#define __WRONGWrongAnimal_H__
 
 #include <string>
 
@@ -7,20 +7,27 @@ using std::string;
 
 class WrongAnimal {
  protected:
-  string type;
+  string _type;
 
  public:
   // Constructors
   WrongAnimal();
-  WrongAnimal(const WrongAnimal& copy);
+  WrongAnimal(const string& type);
+  WrongAnimal(const WrongAnimal& other);
+
   // Destructor
   virtual ~WrongAnimal();
+
   // Operators
-  WrongAnimal& operator=(const WrongAnimal& copy);
+  WrongAnimal& operator=(const WrongAnimal& assign);
+
   // Getters / Setters
-  string const& getType() const;
+  const string& getType() const;
+
   // Methods
   void makeSound() const;
-};
 
-#endif  // __WRONGANIMAL_H__
+ protected:
+  void announce(const string& msg) const;
+};
+#endif  // __WRONGWrongAnimal_H__

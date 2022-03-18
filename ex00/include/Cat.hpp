@@ -7,6 +7,7 @@ class Cat : public Animal {
  public:
   // Constructors
   Cat();
+  Cat(const string& type);
   Cat(Cat const& other);
 
   // Destructor
@@ -19,5 +20,5 @@ class Cat : public Animal {
   void makeSound() const;
 };
 
-
 #endif  // __CAT_H__
+
