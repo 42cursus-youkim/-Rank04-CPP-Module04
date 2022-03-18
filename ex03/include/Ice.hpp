@@ -13,7 +13,7 @@ class Ice : public AMateria {
   ~Ice();
 
   // Operators
-  Ice& operator=(Ice const& rhs);
+  Ice& operator=(Ice const& other);
 
   // Methods
   AMateria* clone() const;

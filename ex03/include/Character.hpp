@@ -19,7 +19,7 @@ class Character : public ICharacter {
   ~Character();
 
   // Operators
-  Character& operator=(const Character& rhs);
+  Character& operator=(const Character& other);
 
   // Getters
   const string& getName() const;

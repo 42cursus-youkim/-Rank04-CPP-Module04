@@ -13,7 +13,7 @@ class Cure : public AMateria {
   ~Cure();
 
   // Operators
-  Cure& operator=(Cure const& rhs);
+  Cure& operator=(Cure const& other);
 
   // Methods
   AMateria* clone() const;

@@ -2,6 +2,7 @@
 #define __AMATERIA_H__
 
 #include <string>
+#include "ICharacter.hpp"
 
 using std::string;
 
