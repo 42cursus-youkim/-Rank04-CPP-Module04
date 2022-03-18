@@ -43,7 +43,9 @@ Character& Character::operator=(const Character& other) {
 }
 
 // Getters/Setters
-const string& Character::getName() const {}
+const string& Character::getName() const {
+  return _name;
+}
 
 // Methods
 void Character::equip(AMateria* m) {

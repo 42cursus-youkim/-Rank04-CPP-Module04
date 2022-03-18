@@ -2,7 +2,6 @@
 #define __ICHARACTER_H__
 
 #include <string>
-
 class AMateria;
 
 class ICharacter {

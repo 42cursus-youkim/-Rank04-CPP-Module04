@@ -1,6 +1,7 @@
 #ifndef __CHARACTER_H__
 #define __CHARACTER_H__
 
+#include "AMateria.hpp"
 #include "ICharacter.hpp"
 
 using std::string;
