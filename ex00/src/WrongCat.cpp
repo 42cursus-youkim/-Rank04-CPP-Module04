@@ -3,6 +3,7 @@
 
 // Constructors
 WrongCat::WrongCat() : WrongAnimal() {
+  _type = "WrongCat";
   LOG_CLASS;
 }
 
@@ -13,5 +14,5 @@ WrongCat::~WrongCat() {
 
 // Methods
 void WrongCat::makeSound() const {
-  log::log("WrongCat", "* Indescribable Screech Remotely Resambling Cat *");
+  log::log("WrongCat", "* Supposed To Be Cat Noise *");
 }

@@ -45,7 +45,7 @@ void log(const string& name, const T& value) {
 #define TEST_EXPECT(expr)                                                   \
   do {                                                                      \
     assert(expr);                                                           \
-    cout << HMAG "{ assert " BBLU << #expr << HMAG " } " BGRN " OK!\n" END; \
+    cout << HWHT "{ assert " BBLU << #expr << HWHT " } " BGRN " OK!\n" END; \
   } while (0);
 
 namespace test {
