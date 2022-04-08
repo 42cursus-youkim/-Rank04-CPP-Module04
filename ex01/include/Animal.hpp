@@ -1,5 +1,5 @@
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef __ANIMAL_H__
+#define __ANIMAL_H__
 
 #include <string>
 
@@ -12,14 +12,9 @@ class Animal {
  public:
   // Constructors
   Animal();
-  Animal(const string& type);
-  Animal(const Animal& other);
 
   // Destructor
   virtual ~Animal();
-
-  // Operators
-  Animal& operator=(const Animal& assign);
 
   // Getters / Setters
   const string& getType() const;
@@ -27,8 +22,10 @@ class Animal {
   // Methods
   virtual void makeSound() const;
 
- protected:
-  void announce(const string& msg) const;
+ private:
+  // Disabled Members
+  Animal(const Animal& other);
+  Animal& operator=(const Animal& assign);
 };
 
-#endif  // ANIMAL_HPP
+#endif  // __ANIMAL_H__

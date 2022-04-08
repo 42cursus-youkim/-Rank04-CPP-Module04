@@ -1,16 +1,15 @@
 #ifndef BRAIN_HPP
 #define BRAIN_HPP
 
-#include <string>
 #include <iostream>
+#include <string>
 
 using std::string;
 
 class Brain {
- private:
-  string _ideas[100];
-
  public:
+  enum { BRAIN_SIZE = 100 };
+
   // Constructors
   Brain();
   Brain(const Brain& other);
@@ -24,6 +23,9 @@ class Brain {
   // Getters
   const string& getIdea(int index) const;
 
+ private:
+  string _ideas[BRAIN_SIZE];
+  const static string _pool[];
 };
 
 std::ostream& operator<<(std::ostream& os, const Brain& b);
