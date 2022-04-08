@@ -1,10 +1,10 @@
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef __DOG_H__
+#define __DOG_H__
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Dog : public Animal {
+class Dog : public AAnimal {
  private:
   Brain* _brain;
 
@@ -13,17 +13,17 @@ class Dog : public Animal {
   Dog();
   Dog(const Dog& other);
 
-  // Destructor
+  // Destructors
   ~Dog();
 
   // Operators
-  Dog& operator=(const Dog& other);
+  Dog& operator=(const Dog& assign);
 
   // Getters
   const Brain& getBrain() const;
 
-  // Methods
+  // Overrided Abstract Methods
   void makeSound() const;
 };
 
-#endif  // DOG_HPP
+#endif  // __DOG_H__

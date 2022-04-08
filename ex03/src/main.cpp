@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include "AMateria.hpp"
 #include "Character.hpp"
 #include "Cure.hpp"
@@ -14,8 +15,11 @@ int main() {
   AMateria* tmp;
   tmp = src->createMateria("ice");
   me->equip(tmp);
+  me->equip(tmp);
   tmp = src->createMateria("cure");
   me->equip(tmp);
+  for (int i = 0; i < 4; i++)
+    me->unequip(i);
 
   ICharacter* bob = new Character("bob");
 
@@ -26,5 +30,6 @@ int main() {
   delete me;
   delete src;
 
+  system("leaks prog.out");
   return 0;
 }

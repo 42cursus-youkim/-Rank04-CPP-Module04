@@ -1,52 +1,67 @@
 #include <iostream>
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "util.hpp"
 
 using std::cout;
 
+template <typename T>
+bool brainIsDifferent(T a, T b) {
+  const Brain &aBrain = a.getBrain(), &bBrain = b.getBrain();
+  if (&aBrain == &bBrain)
+    return false;
+  for (int i = 0; i < Brain::BRAIN_SIZE; i++) {
+    if (&aBrain.getIdea(i) == &bBrain.getIdea(i))
+      return false;
+  }
+  return true;
+}
+
+void test_deep_copy() {
+  test::header("Deep Copy@Constructor");
+  test::subject("Cat");
+  Cat cat;
+  test::subject("Copy Constructed Cat");
+  Cat copycat = cat;
+  test::subject("Check Memory Address is different");
+  TEST_EXPECT(brainIsDifferent(cat, copycat));
+  test::subject("Done");
+}
+
+void test_assignment_operator() {
+  test::header("Deep Copy@Assignment");
+  test::subject("Cat");
+  Cat cat;
+  test::subject("Before Assigned Cat");
+  Cat assigncat;
+  test::subject("Assigned Cat");
+  assigncat = cat;
+  test::subject("Check Memory Address is different");
+  TEST_EXPECT(brainIsDifferent(cat, assigncat));
+  test::subject("Done");
+}
+
+void test_animal_array() {
+  test::header("Animal Array");
+  test::subject("Construction");
+  AAnimal* animals[4] = {new Cat(), new Dog(), new Cat(), new Dog()};
+  test::subject("Cleanup");
+  for (int i = 0; i < 4; i++)
+    delete animals[i];
+  test::subject("Done");
+}
+
+// void test_abstract_init() {
+//   test::header("yes, abstract class can not be initialized");
+//   AAnimal animal;
+// }
+
 int main() {
-  {
-    cout << "** Leak Detection **\n\n";
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    delete j;  // should not create a leak
-    delete i;
-  }
-  {
-    cout << "\n** Array of Animals Test **\n\n";
-    Animal* animals[4] = {new Dog(), new Dog(), new Cat("cat1"),
-                          new Cat("cat2")};
-    for (int i = 0; i < 4; i++)
-      animals[i]->makeSound();
-    for (int i = 0; i < 4; i++)
-      delete animals[i];
-  }
-  {
-    cout << "\n** Deep Copy Test **\n\n";
-    {
-      Animal* dogAnimal = new Dog();
-      Dog dogCopy(*(Dog*)dogAnimal);
-      delete dogAnimal;
-      dogCopy.makeSound();
-      cout << "dogCopy's brain copied from dogAnimal=>\n"
-           << dogCopy.getBrain() << "\n";
-    }
-    cout << "";
-    {
-      Animal* catAnimal = new Cat("CatAnimal");
-      Cat catCopy("BeforeCopyCat");
-      catCopy = (*(Cat*)catAnimal);
-      delete catAnimal;
-      catCopy.makeSound();
-      cout << "catCopy's brain copied from catAnimal=>\n"
-           << catCopy.getBrain() << "\n";
-    }
-    {
-      // Animal Cannot be instantiated
-      // Animal animal;
-      // Animal *animalPtr = new Animal();
-    }
-  }
+  srand(static_cast<unsigned int>(time(NULL)));
+  test_animal_array();
+  test_deep_copy();
+  test_assignment_operator();
+  // test_abstract_init();
   return 0;
 }

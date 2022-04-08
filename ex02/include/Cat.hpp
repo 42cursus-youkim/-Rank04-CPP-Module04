@@ -1,30 +1,29 @@
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef __CAT_H__
+#define __CAT_H__
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Cat : public Animal {
+class Cat : public AAnimal {
  private:
   Brain* _brain;
 
  public:
   // Constructors
   Cat();
-  Cat(const string& type);
-  Cat(Cat const& other);
+  Cat(const Cat& other);
 
-  // Destructor
+  // Destructors
   ~Cat();
 
   // Operators
-  Cat& operator=(Cat const& other);
+  Cat& operator=(const Cat& assign);
 
   // Getters
   const Brain& getBrain() const;
 
-  // Methods
+  // Overrided Abstract Methods
   void makeSound() const;
 };
 
-#endif  // CAT_HPP
+#endif  // __CAT_H__

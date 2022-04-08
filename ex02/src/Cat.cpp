@@ -1,31 +1,29 @@
 #include "Cat.hpp"
+#include "util.hpp"
 
 // Constructors
-Cat::Cat() : Animal("Random Cat") {
-  _brain = new Brain();
-  announce("(CAT) is born");
+Cat::Cat() : AAnimal(), _brain(new Brain()) {
+  LOG_CLASS;
+  _type = "Cat";
 }
-Cat::Cat(const string& type) : Animal(type) {
-  _brain = new Brain();
-  announce("(CAT) is born");
-}
-Cat::Cat(Cat const& other) : Animal(other) {
-  _brain = new Brain(other.getBrain());
-  announce("(CAT) is born");
+
+Cat::Cat(const Cat& other) : AAnimal(), _brain(new Brain(*other._brain)) {
+  LOG_CLASS_COPY;
 }
 
 // Destructor
 Cat::~Cat() {
-  announce("(CAT) is destroyed");
   delete _brain;
+  LOG_CLASS;
 }
 
 // Operators
-Cat& Cat::operator=(Cat const& other) {
-  if (this != &other) {
-    Animal::operator=(other);
-    _brain = new Brain(other.getBrain());
+Cat& Cat::operator=(const Cat& assign) {
+  LOG_CLASS;
+  if (this != &assign) {
+    *_brain = *assign._brain;
   }
+
   return *this;
 }
 
@@ -36,5 +34,5 @@ const Brain& Cat::getBrain() const {
 
 // Methods
 void Cat::makeSound() const {
-  Animal::announce("(CAT) meow!");
+  log::val("Cat", "* Cat Noises *");
 }

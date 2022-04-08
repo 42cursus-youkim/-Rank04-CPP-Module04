@@ -24,12 +24,14 @@ MateriaSource& MateriaSource::operator=(MateriaSource const& other) {
 }
 
 // Methods
+// FIXME: leaks if there are previously allocated materias
 void MateriaSource::copyMateriasFromSource(MateriaSource const& other) {
   for (int i = 0; i < MAX_MATERIAS; i++) {
     const AMateria* temp = other._materias[i];
-    if (temp)
-      _materias[i] = temp->clone();
-    else
+    if (temp) {
+      if _materias
+        [i] = temp->clone();
+    } else
       _materias[i] = NULL;
   }
 }

@@ -51,16 +51,19 @@ const string& Character::getName() const {
 void Character::equip(AMateria* m) {
   for (int i = 0; i < 4; i++) {
     if (_inventory[i] == NULL) {
-      _inventory[i] = m;
+      _inventory[i] = m->clone();
       return;
     }
   }
 }
 
 void Character::unequip(int idx) {
-  if (0 <= idx and idx < 4)
-    if (_inventory[idx])
+  if (0 <= idx and idx < 4) {
+    if (_inventory[idx]) {
       delete _inventory[idx];
+      _inventory[idx] = NULL;
+    }
+  }
 }
 
 void Character::use(int idx, ICharacter& target) {
