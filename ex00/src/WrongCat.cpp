@@ -14,5 +14,5 @@ WrongCat::~WrongCat() {
 
 // Methods
 void WrongCat::makeSound() const {
-  log::log("WrongCat", "* Supposed To Be Cat Noise *");
+  log::val("WrongCat", "* Supposed To Be Cat Noise *");
 }

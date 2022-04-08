@@ -14,5 +14,5 @@ Cat::~Cat() {
 
 // Methods
 void Cat::makeSound() const {
-  log::log("Cat", "* Cat Noises *");
+  log::val("Cat", "* Cat Noises *");
 }

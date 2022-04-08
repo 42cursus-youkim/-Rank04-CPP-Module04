@@ -1,15 +1,15 @@
 {
   "folders": [
     {
+      "name": "ex00",
       "path": "ex00"
     },
     {
+      "name": "ex01",
       "path": "ex01"
     },
     {
-      "path": "ex02"
-    },
-    {
+      "name": "ex03",
       "path": "ex03"
     }
   ],
@@ -33,7 +33,25 @@
       "*.list": "properties",
       "*.sav": "json",
       "*.lalrpop": "rust",
-      "iostream": "cpp"
+      "iostream": "cpp",
+      "new": "cpp",
+      "iosfwd": "cpp",
+      "stdexcept": "cpp",
+      "__functional_base": "cpp",
+      "__functional_base_03": "cpp",
+      "__hash_table": "cpp",
+      "__tuple": "cpp",
+      "algorithm": "cpp",
+      "array": "cpp",
+      "chrono": "cpp",
+      "type_traits": "cpp",
+      "functional": "cpp",
+      "iterator": "cpp",
+      "limits": "cpp",
+      "memory": "cpp",
+      "ratio": "cpp",
+      "tuple": "cpp",
+      "utility": "cpp"
     }
   }
 }

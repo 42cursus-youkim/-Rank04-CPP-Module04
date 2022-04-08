@@ -14,5 +14,5 @@ Dog::~Dog() {
 
 // Methods
 void Dog::makeSound() const {
-  log::log("Dog", "* Dog Noises *");
+  log::val("Dog", "* Dog Noises *");
 }

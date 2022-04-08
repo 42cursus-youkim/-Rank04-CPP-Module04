@@ -18,5 +18,5 @@ const string& WrongAnimal::getType() const {
 
 // Methods
 void WrongAnimal::makeSound() const {
-  log::log("WrongAnimal", "* Something Feels Very Wrong *");
+  log::val("WrongAnimal", "* Something Feels Very Wrong *");
 }

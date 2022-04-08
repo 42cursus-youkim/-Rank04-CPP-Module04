@@ -18,5 +18,5 @@ const string& Animal::getType() const {
 
 // Methods
 void Animal::makeSound() const {
-  log::log("Animal", "* Generic Animal Noise *");
+  log::val("Animal", "* Generic Animal Noise *");
 }
