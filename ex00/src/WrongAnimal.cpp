@@ -4,11 +4,7 @@
 using std::cout;
 
 // Constructors
-WrongAnimal::WrongAnimal() : _type("random WrongAnimal") {
-  announce("is born");
-}
-
-WrongAnimal::WrongAnimal(const string& type) : _type(type) {
+WrongAnimal::WrongAnimal() : _type("WrongAnimal") {
   announce("is born");
 }
 

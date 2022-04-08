@@ -1,12 +1,11 @@
 #include "Cat.hpp"
 
 // Constructors
-Cat::Cat() : Animal("Random Cat") {
+Cat::Cat() : Animal() {
+  _type = "Cat";
   announce("(CAT) is born");
 }
-Cat::Cat(const string& type) : Animal(type) {
-  announce("(CAT) is born");
-}
+
 Cat::Cat(Cat const& other) : Animal(other) {
   announce("(CAT) is born");
 }

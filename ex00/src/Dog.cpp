@@ -1,7 +1,8 @@
 #include "Dog.hpp"
 
 // Constructors
-Dog::Dog() : Animal("Dog") {
+Dog::Dog() : Animal() {
+  _type = "Dog";
   announce("(DOG) is created");
 }
 Dog::Dog(const Dog& other) : Animal(other) {

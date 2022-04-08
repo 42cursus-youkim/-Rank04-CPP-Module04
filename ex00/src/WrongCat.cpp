@@ -1,7 +1,9 @@
 #include "WrongCat.hpp"
 
 // Constructors
-WrongCat::WrongCat() : WrongAnimal("Random WrongCat") {}
+WrongCat::WrongCat() : WrongAnimal() {
+  _type = "WrongCat";
+}
 WrongCat::WrongCat(WrongCat const& other) : WrongAnimal(other) {}
 
 // Destructor

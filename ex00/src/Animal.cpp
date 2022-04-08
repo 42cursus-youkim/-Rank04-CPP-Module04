@@ -4,11 +4,7 @@
 using std::cout;
 
 // Constructors
-Animal::Animal() : _type("random animal") {
-  announce("is born");
-}
-
-Animal::Animal(const string& type) : _type(type) {
+Animal::Animal() : _type("Animal") {
   announce("is born");
 }
 

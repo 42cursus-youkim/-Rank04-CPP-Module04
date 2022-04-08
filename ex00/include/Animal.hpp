@@ -12,7 +12,6 @@ class Animal {
  public:
   // Constructors
   Animal();
-  Animal(const string& type);
   Animal(const Animal& other);
 
   // Destructor

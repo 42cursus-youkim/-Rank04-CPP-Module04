@@ -11,8 +11,8 @@ int main() {
   {
     cout << "--- Animal ---\n";
     const Animal* meta = new Animal();
-    const Animal* i = new Cat("Cat");
     const Animal* j = new Dog();
+    const Animal* i = new Cat();
     cout << "\n";
     cout << "type of i is " << i->getType() << "\n";
     cout << "type of j is " << j->getType() << "\n";

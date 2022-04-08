@@ -12,7 +12,6 @@ class WrongAnimal {
  public:
   // Constructors
   WrongAnimal();
-  WrongAnimal(const string& type);
   WrongAnimal(const WrongAnimal& other);
 
   // Destructor
