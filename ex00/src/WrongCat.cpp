@@ -1,23 +1,17 @@
 #include "WrongCat.hpp"
+#include "util.hpp"
 
 // Constructors
 WrongCat::WrongCat() : WrongAnimal() {
-  _type = "WrongCat";
+  LOG_CLASS;
 }
-WrongCat::WrongCat(WrongCat const& other) : WrongAnimal(other) {}
 
 // Destructor
 WrongCat::~WrongCat() {
-  announce("(WRONGCAT) is destroyed");
-}
-
-// Operators
-WrongCat& WrongCat::operator=(WrongCat const& assign) {
-  WrongAnimal::operator=(assign);
-  return *this;
+  LOG_CLASS;
 }
 
 // Methods
 void WrongCat::makeSound() const {
-  WrongAnimal::announce("(WrongCat) meow!");
+  log::log("WrongCat", "* Indescribable Screech Remotely Resambling Cat *");
 }

@@ -7,16 +7,17 @@ class Dog : public Animal {
  public:
   // Constructors
   Dog();
-  Dog(const Dog& other);
 
   // Destructor
   ~Dog();
 
-  // Operators
-  Dog& operator=(const Dog& assign);
-
   // Methods
   void makeSound() const;
+
+ private:
+  // Disabled Members
+  Dog(const Dog& other);
+  Dog& operator=(const Dog& assign);
 };
 
 #endif  // __DOG_H__

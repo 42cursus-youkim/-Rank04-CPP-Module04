@@ -7,16 +7,17 @@ class WrongCat : public WrongAnimal {
  public:
   // Constructors
   WrongCat();
-  WrongCat(WrongCat const& other);
 
   // Destructor
   ~WrongCat();
 
-  // Operators
-  WrongCat& operator=(WrongCat const& assign);
-
   // Methods
   void makeSound() const;
+
+ private:
+  // Disabled Members
+  WrongCat(WrongCat const& other);
+  WrongCat& operator=(WrongCat const& assign);
 };
 
 #endif  // __WRONGCAT_H__

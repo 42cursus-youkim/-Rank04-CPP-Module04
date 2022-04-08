@@ -7,17 +7,17 @@ class Cat : public Animal {
  public:
   // Constructors
   Cat();
-  Cat(Cat const& other);
 
   // Destructor
   ~Cat();
 
-  // Operators
-  Cat& operator=(Cat const& assign);
-
   // Methods
   void makeSound() const;
+
+ private:
+  // Disabled Members
+  Cat(const Cat& other);
+  Cat& operator=(const Cat& assign);
 };
 
 #endif  // __CAT_H__
-

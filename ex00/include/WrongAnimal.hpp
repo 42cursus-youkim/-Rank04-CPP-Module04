@@ -12,13 +12,9 @@ class WrongAnimal {
  public:
   // Constructors
   WrongAnimal();
-  WrongAnimal(const WrongAnimal& other);
 
   // Destructor
   virtual ~WrongAnimal();
-
-  // Operators
-  WrongAnimal& operator=(const WrongAnimal& assign);
 
   // Getters / Setters
   const string& getType() const;
@@ -26,7 +22,10 @@ class WrongAnimal {
   // Methods
   void makeSound() const;
 
- protected:
-  void announce(const string& msg) const;
+ private:
+  // Disabled Members
+  WrongAnimal(const WrongAnimal& other);
+  WrongAnimal& operator=(const WrongAnimal& assign);
 };
-#endif  // __WRONGWrongAnimal_H__
+
+#endif  // __WRONGANIMAL_H__

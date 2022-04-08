@@ -12,13 +12,9 @@ class Animal {
  public:
   // Constructors
   Animal();
-  Animal(const Animal& other);
 
   // Destructor
   virtual ~Animal();
-
-  // Operators
-  Animal& operator=(const Animal& assign);
 
   // Getters / Setters
   const string& getType() const;
@@ -26,8 +22,10 @@ class Animal {
   // Methods
   virtual void makeSound() const;
 
- protected:
-  void announce(const string& msg) const;
+ private:
+  // Disabled Members
+  Animal(const Animal& other);
+  Animal& operator=(const Animal& assign);
 };
 
 #endif  // __ANIMAL_H__

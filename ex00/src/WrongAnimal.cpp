@@ -1,28 +1,14 @@
 #include "WrongAnimal.hpp"
-#include <iostream>
-
-using std::cout;
+#include "util.hpp"
 
 // Constructors
 WrongAnimal::WrongAnimal() : _type("WrongAnimal") {
-  announce("is born");
-}
-
-WrongAnimal::WrongAnimal(const WrongAnimal& other) {
-  *this = other;
-  announce("is copied");
+  LOG_CLASS;
 }
 
 // Destructor
 WrongAnimal::~WrongAnimal() {
-  announce("dies");
-}
-
-// Operators
-WrongAnimal& WrongAnimal::operator=(const WrongAnimal& assign) {
-  announce("is assigned");
-  _type = assign.getType();
-  return *this;
+  LOG_CLASS;
 }
 
 // Getters / Setters
@@ -32,9 +18,5 @@ const string& WrongAnimal::getType() const {
 
 // Methods
 void WrongAnimal::makeSound() const {
-  announce("(WrongAnimal) makes a sound");
-}
-
-void WrongAnimal::announce(const string& msg) const {
-  cout << _type << " " << msg << std::endl;
+  log::log("WrongAnimal", "* Something Feels Very Wrong *");
 }
