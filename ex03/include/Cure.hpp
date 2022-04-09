@@ -4,16 +4,17 @@
 #include "AMateria.hpp"
 
 class Cure : public AMateria {
+ private:
+  // Disabled Members
+  Cure(Cure const& other);
+  Cure& operator=(Cure const& other);
+
  public:
   // Constructor
   Cure();
-  Cure(Cure const& other);
 
   // Destructor
   ~Cure();
-
-  // Operators
-  Cure& operator=(Cure const& other);
 
   // Methods
   AMateria* clone() const;

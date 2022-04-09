@@ -1,25 +1,20 @@
 #include "Ice.hpp"
 #include <iostream>
+#include "color.hpp"
 
 // Constructors
 Ice::Ice() : AMateria("ice") {}
-Ice::Ice(Ice const& other) : AMateria(other) {}
 
 // Destructor
 Ice::~Ice() {}
 
-// Operators
-Ice& Ice::operator=(Ice const& other) {
-  AMateria::operator=(other);
-  return *this;
-}
-
 // Methods
 AMateria* Ice::clone() const {
-  return new Ice(*this);
+  return new Ice();
 }
 
 void Ice::use(ICharacter& target) {
-  std::cout << "* shoots an ice bolt at " << target.getName() << " *\n";
+  std::cout << BLU "* shoots an ice bolt at " BCYN << target.getName()
+            << BLU " *\n" END;
   AMateria::use(target);
 }

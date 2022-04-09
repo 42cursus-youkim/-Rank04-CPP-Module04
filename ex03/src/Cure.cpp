@@ -1,18 +1,12 @@
 #include "Cure.hpp"
 #include <iostream>
+#include "color.hpp"
 
 // Constructors
 Cure::Cure() : AMateria("cure") {}
-Cure::Cure(Cure const& other) : AMateria(other) {}
 
 // Destructor
 Cure::~Cure() {}
-
-// Operators
-Cure& Cure::operator=(Cure const& other) {
-  AMateria::operator=(other);
-  return *this;
-}
 
 // Methods
 AMateria* Cure::clone() const {
@@ -20,6 +14,7 @@ AMateria* Cure::clone() const {
 }
 
 void Cure::use(ICharacter& target) {
-  std::cout << "* heals " << target.getName() << "'s wounds *\n";
+  std::cout << GRN "* heals " BCYN << target.getName()
+            << GRN "'s wounds *\n" END;
   AMateria::use(target);
 }

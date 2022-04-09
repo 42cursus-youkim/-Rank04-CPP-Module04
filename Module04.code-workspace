@@ -56,7 +56,8 @@
       "ratio": "cpp",
       "tuple": "cpp",
       "utility": "cpp",
-      "string": "cpp"
+      "string": "cpp",
+      "cstdlib": "cpp"
     }
   }
 }

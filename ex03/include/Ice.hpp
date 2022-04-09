@@ -4,16 +4,17 @@
 #include "AMateria.hpp"
 
 class Ice : public AMateria {
+ private:
+  // Disabled Members
+  Ice(Ice const& other);
+  Ice& operator=(Ice const& other);
+
  public:
   // Constructor
   Ice();
-  Ice(Ice const& other);
 
   // Destructor
   ~Ice();
-
-  // Operators
-  Ice& operator=(Ice const& other);
 
   // Methods
   AMateria* clone() const;
