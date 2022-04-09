@@ -11,23 +11,29 @@ class AMateria {
   string _type;
 
  private:
+  /*
+   * While assigning a Materia to another, copying the type doesn’t make sense.
+   * However Materia only has type as their sole member value.
+   * Hence copying or assigning Materia has of no use and is not allowed.
+   */
+  // Disabled Members
   AMateria();
+  AMateria(AMateria const& other);
+  AMateria& operator=(AMateria const& other);
 
  public:
   // Constructor
   AMateria(string const& type);
-  AMateria(AMateria const& other);
 
   // Destructor
   virtual ~AMateria();
 
   // Operators
-  AMateria& operator=(AMateria const& other);
 
   // Getters
   string const& getType() const;  // Returns the materia type
 
-  // Abstract Methods
+  // Abstract Method
   virtual AMateria* clone() const = 0;
 
   // Methods

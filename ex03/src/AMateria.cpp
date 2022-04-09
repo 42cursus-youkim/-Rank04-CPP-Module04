@@ -1,24 +1,10 @@
 #include "AMateria.hpp"
 #include <iostream>
+#include "color.hpp"
 
-// Constructors
-AMateria::AMateria() {}  // Disabled
-
-AMateria::AMateria(string const& type) {
-  _type = type;
-}
-AMateria::AMateria(AMateria const& other) {
-  _type = other._type;
-}
-
-// Destructor
+// Constructors & Destructor
+AMateria::AMateria(string const& type) : _type(type) {}
 AMateria::~AMateria() {}
-
-// Operators
-AMateria& AMateria::operator=(AMateria const& other) {
-  _type = other._type;
-  return *this;
-}
 
 // Getters/Setters
 string const& AMateria::getType() const {
