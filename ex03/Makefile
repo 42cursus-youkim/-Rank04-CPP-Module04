@@ -19,7 +19,8 @@ clean:
 	rm -f $(OBJ) $(NAME)
 
 run: $(NAME)
-	./$(NAME)
+	./$(NAME) wait
+
 
 leak:
 	colour-valgrind ./$(NAME)

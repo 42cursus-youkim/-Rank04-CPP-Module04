@@ -58,11 +58,10 @@ void Character::equip(AMateria* m) {
   }
 }
 
+// NOTE: unequip() member function must NOT delete the Materia!
 void Character::unequip(int idx) {
-  if (itemInInventory(idx)) {
-    delete _inventory[idx];
+  if (itemInInventory(idx))
     _inventory[idx] = NULL;
-  }
 }
 
 void Character::use(int idx, ICharacter& target) {
