@@ -8,8 +8,11 @@ using std::string;
 
 class Character : public ICharacter {
  private:
+  enum { INVENTORY_SIZE = 4 };
   string _name;
   AMateria* _inventory[4];
+
+  bool itemInInventory(int idx) const;
 
  public:
   // Constructor

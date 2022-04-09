@@ -29,8 +29,8 @@ void MateriaSource::copyMateriasFromSource(MateriaSource const& other) {
   for (int i = 0; i < MAX_MATERIAS; i++) {
     const AMateria* temp = other._materias[i];
     if (temp) {
-      if _materias
-        [i] = temp->clone();
+      delete _materias[i];
+      _materias[i] = temp->clone();
     } else
       _materias[i] = NULL;
   }

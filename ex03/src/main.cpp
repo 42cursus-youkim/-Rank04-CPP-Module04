@@ -4,6 +4,7 @@
 #include "Cure.hpp"
 #include "Ice.hpp"
 #include "MateriaSource.hpp"
+#include "util.hpp"
 
 int main() {
   IMateriaSource* src = new MateriaSource();
@@ -15,21 +16,20 @@ int main() {
   AMateria* tmp;
   tmp = src->createMateria("ice");
   me->equip(tmp);
-  me->equip(tmp);
-  tmp = src->createMateria("cure");
-  me->equip(tmp);
-  for (int i = 0; i < 4; i++)
-    me->unequip(i);
+  // me->equip(tmp);
+  // tmp = src->createMateria("cure");
+  // me->equip(tmp);
 
-  ICharacter* bob = new Character("bob");
+  // ICharacter* bob = new Character("bob");
 
-  me->use(0, *bob);
-  me->use(1, *bob);
+  // me->use(0, *bob);
+  // me->use(1, *bob);
 
-  delete bob;
+  delete tmp;
+  // delete bob;
   delete me;
   delete src;
 
-  system("leaks prog.out");
+  // system("leaks prog.out");
   return 0;
 }

@@ -27,8 +27,10 @@ class AMateria {
   // Getters
   string const& getType() const;  // Returns the materia type
 
-  // Methods
+  // Abstract Methods
   virtual AMateria* clone() const = 0;
+
+  // Methods
   virtual void use(ICharacter& target);
 };
 
