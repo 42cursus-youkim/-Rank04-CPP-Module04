@@ -5,12 +5,8 @@
 
 class MateriaSource : public IMateriaSource {
  private:
-  const static int MAX_MATERIAS = 4;
-
-  AMateria* _materias[MAX_MATERIAS];
-
-  // Methods
-  void copyMateriasFromSource(MateriaSource const& other);
+  enum { MATERIA_SOURCE_SIZE = 4 };
+  AMateria* _materias[MATERIA_SOURCE_SIZE];
 
  public:
   // Constructors

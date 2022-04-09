@@ -1,54 +1,61 @@
 #include "MateriaSource.hpp"
+#include <iostream>
+#include "color.hpp"
 
-// Constructors
+using std::cout;
+
+// Constructors & Destructor
 MateriaSource::MateriaSource() {
-  for (int i = 0; i < MAX_MATERIAS; i++)
+  for (int i = 0; i < MATERIA_SOURCE_SIZE; i++)
     _materias[i] = NULL;
 }
 
 MateriaSource::MateriaSource(MateriaSource const& other) {
-  copyMateriasFromSource(other);
+  for (int i = 0; i < MATERIA_SOURCE_SIZE; i++) {
+    AMateria* otherMateria = other._materias[i];
+    _materias[i] = otherMateria ? otherMateria->clone() : NULL;
+  }
 }
 
-// Destructor
 MateriaSource::~MateriaSource() {
-  for (int i = 0; i < MAX_MATERIAS; i++)
+  for (int i = 0; i < MATERIA_SOURCE_SIZE; i++)
     if (_materias[i])
       delete _materias[i];
 }
 
 // Operators
 MateriaSource& MateriaSource::operator=(MateriaSource const& other) {
-  copyMateriasFromSource(other);
+  if (this != &other) {
+    for (int i = 0; i < MATERIA_SOURCE_SIZE; i++)
+      delete _materias[i];
+
+    for (int i = 0; i < MATERIA_SOURCE_SIZE; i++) {
+      AMateria* otherMateria = other._materias[i];
+      _materias[i] = otherMateria ? otherMateria->clone() : NULL;
+    }
+  }
   return *this;
 }
 
-// Methods
-// FIXME: leaks if there are previously allocated materias
-void MateriaSource::copyMateriasFromSource(MateriaSource const& other) {
-  for (int i = 0; i < MAX_MATERIAS; i++) {
-    const AMateria* temp = other._materias[i];
-    if (temp) {
-      delete _materias[i];
-      _materias[i] = temp->clone();
-    } else
-      _materias[i] = NULL;
-  }
-}
-
 void MateriaSource::learnMateria(AMateria* materia) {
-  for (int i = 0; i < MAX_MATERIAS; i++) {
+  if (not materia)
+    return;
+  for (int i = 0; i < MATERIA_SOURCE_SIZE; i++) {
     if (not _materias[i]) {
-      _materias[i] = materia;
+      _materias[i] = materia->clone();
+      cout << YEL "MateriaSource learns " BCYN << materia->getType()
+           << "\n" END;
       return;
     }
   }
+  cout << RED "MateriaSource is Full.\n" END;
 }
 
 AMateria* MateriaSource::createMateria(std::string const& type) {
-  for (int i = 0; i < MAX_MATERIAS; i++) {
+  for (int i = 0; i < MATERIA_SOURCE_SIZE; i++) {
     if (_materias[i] and _materias[i]->getType() == type)
       return _materias[i]->clone();
   }
+  cout << RED "MateriaSource does not have " BYEL << type << ".\n " END;
   return NULL;
 }
