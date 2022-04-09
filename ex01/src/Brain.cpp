@@ -29,15 +29,13 @@ const string pool[] = {
 Brain::Brain() {
   LOG_CLASS;
   for (int i = 0; i < BRAIN_SIZE; i++)
-    _ideas[i] =
-        pool[rand() % static_cast<int>((sizeof(pool) / sizeof(string)))];
+    _ideas[i] = pool[rand() % static_cast<int>(sizeof(pool) / sizeof(string))];
   cout << *this << "\n";
 }
 
 Brain::Brain(const Brain& other) {
   LOG_CLASS_COPY;
-  for (int i = 0; i < BRAIN_SIZE; i++)
-    _ideas[i] = other.getIdea(i);
+  operator=(other);
   cout << *this << "\n";
 }
 
@@ -63,7 +61,7 @@ const string& Brain::getIdea(int index) const {
 }
 
 std::ostream& operator<<(std::ostream& os, const Brain& b) {
-  for (int i = 0; i < Brain::BRAIN_SIZE / 10; i++)
+  for (int i = 0; i < Brain::BRAIN_SIZE / 5; i++)
     os << b.getIdea(i);
   return os;
 }

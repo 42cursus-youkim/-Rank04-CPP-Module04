@@ -19,27 +19,48 @@ bool brainIsDifferent(T a, T b) {
 }
 
 void test_deep_copy() {
-  test::header("Deep Copy@Constructor");
-  test::subject("Cat");
-  Cat cat;
-  test::subject("Copy Constructed Cat");
-  Cat copycat = cat;
-  test::subject("Check Memory Address is different");
-  TEST_EXPECT(brainIsDifferent(cat, copycat));
-  test::subject("Done");
+  {
+    test::header("Deep Copy@Scope");
+    Dog dog;
+    {
+      test::subject("tmp@Scope");
+      Dog tmp = dog;
+    }
+    test::subject("Look ma, no segfaults");
+  }
+  {
+    test::header("Deep Copy@Constructor");
+    test::subject("Cat");
+    Cat cat;
+    test::subject("Copy Constructed Cat");
+    Cat copycat = cat;
+    test::subject("Check Memory Address is different");
+    TEST_EXPECT(brainIsDifferent(cat, copycat));
+    test::subject("Done");
+  }
 }
 
 void test_assignment_operator() {
-  test::header("Deep Copy@Assignment");
-  test::subject("Cat");
-  Cat cat;
-  test::subject("Before Assigned Cat");
-  Cat assigncat;
-  test::subject("Assigned Cat");
-  assigncat = cat;
-  test::subject("Check Memory Address is different");
-  TEST_EXPECT(brainIsDifferent(cat, assigncat));
-  test::subject("Done");
+  {
+    test::header("Deep Copy@Assignment");
+    test::subject("Cat");
+    Cat cat;
+    test::subject("Before Assigned Cat");
+    Cat assigncat;
+    test::subject("Assigned Cat");
+    assigncat = cat;
+    test::subject("Check Memory Address is different");
+    TEST_EXPECT(brainIsDifferent(cat, assigncat));
+    test::subject("Done");
+  }
+  {
+    test::header("Deep Copy@Multiple");
+    Dog dog;
+    Dog other;
+    for (int i = 0; i < 10; i++)
+      dog = other;
+    LOG_VAL(dog.getBrain());
+  }
 }
 
 void test_animal_array() {
@@ -49,6 +70,7 @@ void test_animal_array() {
   test::subject("Cleanup");
   for (int i = 0; i < 4; i++)
     delete animals[i];
+
   test::subject("Done");
 }
 

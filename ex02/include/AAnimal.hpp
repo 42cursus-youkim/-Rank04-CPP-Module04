@@ -28,4 +28,4 @@ class AAnimal {
   AAnimal& operator=(const AAnimal& assign);
 };
 
-#endif  // __ANIMAL_H__
+#endif  // __AANIMAL_H__
