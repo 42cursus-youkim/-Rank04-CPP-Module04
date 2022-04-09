@@ -5,7 +5,7 @@ CXXFLAGS := -Wall -Wextra -Werror -Wconversion -pedantic \
 						-I include/ -I interface/ -I util/
 
 
-SRC := $(wildcard src/*.cpp)
+SRC := $(wildcard src/*.cpp) $(wildcard test/*.cpp)
 OBJ := $(SRC:%.cpp=%.o)
 
 $(NAME): $(OBJ)
