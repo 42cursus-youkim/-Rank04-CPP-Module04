@@ -29,6 +29,7 @@ class AMateria {
   virtual ~AMateria();
 
   // Operators
+  bool operator==(AMateria const& other) const;
 
   // Getters
   string const& getType() const;  // Returns the materia type
