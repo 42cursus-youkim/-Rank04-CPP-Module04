@@ -27,6 +27,7 @@ class Character : public ICharacter {
 
   // Getters
   const string& getName() const;
+  AMateria* getMateria(int idx) const;
 
   // Methods
   void equip(AMateria* m);

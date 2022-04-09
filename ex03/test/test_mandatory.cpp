@@ -15,16 +15,12 @@ void test_mandatory() {
 
   ICharacter* me = new Character("me");
   AMateria* tmp;
-  {
-    tmp = src->createMateria("ice");
-    me->equip(tmp);
-    delete tmp;
-  }
-  {
-    tmp = src->createMateria("cure");
-    me->equip(tmp);
-    delete tmp;
-  }
+  tmp = src->createMateria("ice");
+  me->equip(tmp);
+  delete tmp;
+  tmp = src->createMateria("cure");
+  me->equip(tmp);
+  delete tmp;
   ICharacter* bob = new Character("bob");
   me->use(0, *bob);
   me->use(1, *bob);

@@ -5,6 +5,7 @@ typedef void (*test_func)();
 test_func tests[] = {
     test_materia,
     test_materia_source,
+    test_character,
     test_mandatory,
 };
 const int test_len = sizeof(tests) / sizeof(test_func);

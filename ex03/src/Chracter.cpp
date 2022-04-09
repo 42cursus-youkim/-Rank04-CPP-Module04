@@ -1,8 +1,8 @@
 #include "Character.hpp"
+#include "util.hpp"
 
 // Constructors
-Character::Character(const string& name) {
-  _name = name;
+Character::Character(const string& name) : _name(name) {
   for (int i = 0; i < INVENTORY_SIZE; i++)
     _inventory[i] = NULL;
 }
@@ -10,34 +10,31 @@ Character::Character(const string& name) {
 Character::Character(const Character& other) {
   _name = other._name;
   for (int i = 0; i < INVENTORY_SIZE; i++) {
-    const AMateria* temp = other._inventory[i];
-    if (temp) {
-      _inventory[i] = temp->clone();
-    } else
-      _inventory[i] = NULL;
+    const AMateria* tmp = other._inventory[i];
+    _inventory[i] = tmp ? tmp->clone() : NULL;
   }
 }
 
 // Destructor
+// the Materias must be deleted when a Character is destroyed.
 Character::~Character() {
-  for (int i = 0; i < INVENTORY_SIZE; i++) {
+  for (int i = 0; i < INVENTORY_SIZE; i++)
     if (_inventory[i])
       delete _inventory[i];
-  }
 }
 
 // Operators
 Character& Character::operator=(const Character& other) {
   if (this != &other) {
     _name = other._name;
+
+    for (int i = 0; i < INVENTORY_SIZE; i++)
+      if (_inventory[i])
+        delete _inventory[i];
+
     for (int i = 0; i < 4; i++) {
-      const AMateria* temp = other._inventory[i];
-      if (temp) {
-        if (_inventory[i])
-          delete _inventory[i];
-        _inventory[i] = temp->clone();
-      } else
-        _inventory[i] = NULL;
+      const AMateria* tmp = other._inventory[i];
+      _inventory[i] = tmp ? tmp->clone() : NULL;
     }
   }
   return *this;
@@ -50,6 +47,8 @@ const string& Character::getName() const {
 
 // Methods
 void Character::equip(AMateria* m) {
+  if (not m)
+    return;
   for (int i = 0; i < INVENTORY_SIZE; i++) {
     if (not _inventory[i]) {
       _inventory[i] = m->clone();
@@ -62,6 +61,10 @@ void Character::equip(AMateria* m) {
 void Character::unequip(int idx) {
   if (itemInInventory(idx))
     _inventory[idx] = NULL;
+}
+
+AMateria* Character::getMateria(int idx) const {
+  return itemInInventory(idx) ? _inventory[idx] : NULL;
 }
 
 void Character::use(int idx, ICharacter& target) {

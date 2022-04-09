@@ -12,8 +12,8 @@ MateriaSource::MateriaSource() {
 
 MateriaSource::MateriaSource(MateriaSource const& other) {
   for (int i = 0; i < MATERIA_SOURCE_SIZE; i++) {
-    AMateria* otherMateria = other._materias[i];
-    _materias[i] = otherMateria ? otherMateria->clone() : NULL;
+    const AMateria* tmp = other._materias[i];
+    _materias[i] = tmp ? tmp->clone() : NULL;
   }
 }
 
@@ -30,8 +30,8 @@ MateriaSource& MateriaSource::operator=(MateriaSource const& other) {
       delete _materias[i];
 
     for (int i = 0; i < MATERIA_SOURCE_SIZE; i++) {
-      AMateria* otherMateria = other._materias[i];
-      _materias[i] = otherMateria ? otherMateria->clone() : NULL;
+      const AMateria* tmp = other._materias[i];
+      _materias[i] = tmp ? tmp->clone() : NULL;
     }
   }
   return *this;

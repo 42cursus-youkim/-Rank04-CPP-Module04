@@ -1,7 +1,7 @@
 NAME := prog.out
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -Wconversion -pedantic \
-						-std=c++98 																	 \
+						-std=c++98 -g																	 \
 						-I include/ -I interface/ -I util/
 
 
