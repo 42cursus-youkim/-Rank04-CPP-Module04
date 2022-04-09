@@ -8,6 +8,23 @@
 
 using std::cout;
 
+void test_not_pointer() {
+  test::header("Non-Pointer Instances");
+  test::subject("Animal");
+  Animal animal;
+  animal.makeSound();
+  test::subject("Cat");
+  Cat cat;
+  cat.makeSound();
+  test::subject("WrongAnimal");
+  WrongAnimal wronganimal;
+  wronganimal.makeSound();
+  test::subject("WrongCat");
+  WrongCat wrongcat;
+  wrongcat.makeSound();
+  test::subject("Cleanup");
+}
+
 void test_with_virtual() {
   test::header("Animal");
 
@@ -40,11 +57,11 @@ void test_with_virtual() {
 }
 
 void test_without_virtual() {
-  test::header("WrongAnimal");
+  test::header("WrongCat@WrongAnimal");
 
-  test::subject("WrongAnimal creation");
+  test::subject("WrongAnimal" BMAG "@WrongAnimalPtr " BCYN "creation");
   const WrongAnimal* meta = new WrongAnimal();
-  test::subject("WrongCat creation");
+  test::subject("WrongCat" BMAG "@WrongAnimalPtr " BCYN "creation");
   const WrongAnimal* cat = new WrongCat();
   {
     test::subject("Types");
@@ -66,6 +83,7 @@ void test_without_virtual() {
 }
 
 int main() {
+  test_not_pointer();
   test_with_virtual();
   test_without_virtual();
   return 0;
