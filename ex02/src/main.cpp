@@ -7,7 +7,7 @@
 using std::cout;
 
 template <typename T>
-bool brainIsDifferent(T a, T b) {
+bool brainIsDifferent(const T& a, const T& b) {
   const Brain &aBrain = a.getBrain(), &bBrain = b.getBrain();
   if (&aBrain == &bBrain)
     return false;
